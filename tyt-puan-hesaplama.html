@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div class="content">
+<div class="headcontent">
+<div class="col45"><label style="width: 150px; display: block;">Diploma Puaný : </label> <input style="width: 100%;" type="text" id="diplomaPuani" onkeyup="hesaplaAslan()" name="diplomaPuani" /> <br /><label> Daha Önce Bir Bölüme Yerleþtim </label> <input style="width: 20px !important;" type="checkbox" id="diplomaAktif" onclick="hesaplaAslan()" /></div>
+<div class="col45"></div>
+<div class="col45"><label style="width: 150px; display: block;">TYT Ham </label> <input style="width: 100%;" type="text" id="tytHamPuan" name="tytHamPuan" disabled="disabled" /> <br /><label style="width: 150px; display: block;">TYT Yerleþtirme </label> <input style="width: 100%;" type="text" id="tytYerlestirmePuan" name="tytYerlestirmePuan" disabled="disabled" /></div>
+</div>
+<form><fieldset><legend>Türkçe: 40 Soru</legend> <label for="tytTemelMatematikDogru">Doðru</label> <input type="text" id="tytTurkceDogru" onkeyup="hesaplaAslan()" name="tytTurkceDogru" /> <label for="lname">Yanlýþ</label> <input type="text" id="tytTurkceYanlis" onkeyup="hesaplaAslan()" name="tytTurkceYanlis" /> <label for="country">Net</label> <input type="text" id="tytTurkceNet" name="tytTurkceNet" disabled="disabled" /></fieldset><fieldset><legend>Temel Matematik: 40 Soru</legend> <label for="tytTemelMatematikDogru">Doðru</label> <input type="text" id="tytTemelMatematikDogru" onkeyup="hesaplaAslan()" name="tytTemelMatematikDogru" /> <label for="tytTemelMatematikYanlis">Yanlýþ</label> <input type="text" id="tytTemelMatematikYanlis" onkeyup="hesaplaAslan()" name="tytTemelMatematikYanlis" /> <label for="tytTemelMatematikNet">Net</label> <input type="text" id="tytTemelMatematikNet" name="tytTemelMatematikNet" disabled="disabled" /></fieldset><fieldset><legend>Sosyal Bilimler: 20 Soru</legend> <label for="tytSosyalBilimlerDogru">Doðru</label> <input type="text" id="tytSosyalBilimlerDogru" onkeyup="hesaplaAslan()" name="tytSosyalBilimlerDogru" /> <label for="tytSosyalBilimlerYanlis">Yanlýþ</label> <input type="text" id="tytSosyalBilimlerYanlis" onkeyup="hesaplaAslan()" name="tytSosyalBilimlerYanlis" /> <label for="tytSosyalBilimlerNet">Net</label> <input type="text" id="tytSosyalBilimlerNet" name="tytSosyalBilimlerNet" disabled="disabled" /></fieldset><fieldset><legend>Fen Bilimleri: 20 Soru</legend> <label for="tytFenBilimleriDogru">Doðru</label> <input type="text" id="tytFenBilimleriDogru" onkeyup="hesaplaAslan()" name="tytFenBilimleriDogru" /> <label for="tytFenBilimleriYanlis">Yanlýþ</label> <input type="text" id="tytFenBilimleriYanlis" onkeyup="hesaplaAslan()" name="tytFenBilimleriYanlis" /> <label for="tytFenBilimleriNet">Net</label> <input type="text" id="tytFenBilimleriNet" name="tytFenBilimleriNet" disabled="disabled" /></fieldset></form></div>
+<p>
+<script>
+		function hesaplaAslan() {
+			var diplomaCheck = document.getElementById("diplomaAktif");
+
+			if (diplomaCheck.checked == true) {
+				var diplomaPuani = (((document.getElementById("diplomaPuani").value) * 0.6) / 2);
+			} else {
+				var diplomaPuani = ((document.getElementById("diplomaPuani").value) * 0.6);
+			}
+
+			var tytTurkceDogru = document.getElementById("tytTurkceDogru").value;
+			var tytTurkceYanlis = document.getElementById("tytTurkceYanlis").value;
+			var tytTurkceNet = tytTurkceDogru - (tytTurkceYanlis / 4);
+
+			var tytTemelMatematikDogru = document.getElementById("tytTemelMatematikDogru").value;
+			var tytTemelMatematikYanlis = document.getElementById("tytTemelMatematikYanlis").value;
+			var tytTemelMatematikNet = tytTemelMatematikDogru - (tytTemelMatematikYanlis / 4);
+
+			var tytSosyalBilimlerDogru = document.getElementById("tytSosyalBilimlerDogru").value;
+			var tytSosyalBilimlerYanlis = document.getElementById("tytSosyalBilimlerYanlis").value;
+			var tytSosyalBilimlerNet = tytSosyalBilimlerDogru - (tytSosyalBilimlerYanlis / 4);
+
+			var tytFenBilimleriDogru = document.getElementById("tytFenBilimleriDogru").value;
+			var tytFenBilimleriYanlis = document.getElementById("tytFenBilimleriYanlis").value;
+			var tytFenBilimleriNet = tytFenBilimleriDogru - (tytFenBilimleriYanlis / 4);
+
+			var tytHamPuan = (tytTurkceNet * 3.3) + (tytTemelMatematikNet * 3.3) + (tytSosyalBilimlerNet * 3.4) + (tytFenBilimleriNet * 3.4) + 100;
+			var tytYerlestirmePuan = tytHamPuan + parseFloat(diplomaPuani);
+
+			document.getElementById("tytTurkceNet").value = tytTurkceDogru - (tytTurkceYanlis / 4);
+			document.getElementById("tytTemelMatematikNet").value = tytTemelMatematikDogru - (tytTemelMatematikYanlis / 4);
+			document.getElementById("tytSosyalBilimlerNet").value = tytSosyalBilimlerDogru - (tytSosyalBilimlerYanlis / 4);
+			document.getElementById("tytFenBilimleriNet").value = tytFenBilimleriDogru - (tytFenBilimleriYanlis / 4);
+
+			document.getElementById("tytHamPuan").value = tytHamPuan;
+			document.getElementById("tytYerlestirmePuan").value = tytYerlestirmePuan;
+		}
+	</script>
+</p>
+<style>
+		body {
+			margin: 0px;
+			font-family: Ubuntu;
+color: #000;
+		}
+		@media screen and (max-width: 768px) {
+			input[type=text] {
+				width: 80%;
+				margin: 5px 15px 5px 10px;
+				display: block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+				font-size: 16px;
+				font-weight: bold;
+				color: #000;
+			}
+
+			.content {
+				border-radius: 0px;
+				width: 100%;
+				margin: 0px auto;
+			}
+
+			.headcontent {
+				height: auto;
+				padding: 15px;
+				color: #000;
+			}
+
+			.headcontent input {
+				width: 80% !important;
+				padding: 5px;
+			}
+
+			.col45 {
+				width: 100%;
+				padding: 5px;
+color: #000;
+			}
+
+			fieldset {
+				width: 80%;
+				margin: 0 auto;
+				margin-top: 15px;
+				border-color: #000;
+				border-radius: 30px;
+color: #000;
+			}
+		}
+
+	</style>
+</body>
+
+</html>

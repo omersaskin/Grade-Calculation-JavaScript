@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div class="content">
+<div class="headcontent">
+<div class="col45">
+	<label style="width: 150px; display: block;">Diploma Puanı : </label> 
+	<input style="width: 100%;" type="text" id="aytdiplomaPuani" onkeyup="hesaplaAslanAYT()" name="aytdiplomaPuani" /> 
+	<br />
+	<span>Daha Önce Bir Bölüme Yerleştim</span> 
+	<input style="width: 20px !important;" type="checkbox" id="aytdiplomaAktif" onclick="hesaplaAslanAYT()" />
+</div>
+<div class="col45"></div>
+<div class="col45">
+	<label style="width: 300px; display: block;">TYT Ham </label> 
+	<input style="width: 100%;" type="text" id="tytHamPuan" name="tytHamPuan" disabled="disabled" /> 
+	<br />
+	<label style="width: 300px; display: block;">TYT Yerleştirme </label> 
+	<input style="width: 100%;" type="text" id="tytYerlestirmePuan" name="tytYerlestirmePuan" disabled="disabled" />
+</div>
+<div class="col45">
+	<label style="width: 300px; display: block;">AYT Ham Sözel</label> 
+	<input style="width: 100%;" type="text" id="aytHamPuanSozel" name="aytHamPuanSozel" disabled="disabled" /> 
+	<br />
+	<label style="width: 300px; display: block;">AYT Yerleştirme Sözel </label> 
+	<input style="width: 100%;" type="text" id="aytYerlestirmePuanSozel" name="aytYerlestirmePuanSozel" disabled="disabled" />
+</div>
+<div class="col45">
+	<label style="width: 300px; display: block;">AYT Ham Sayısal</label> 
+	<input style="width: 100%;" type="text" id="aytHamPuanSayisal" name="aytHamPuanSayisal" disabled="disabled" /> 
+	<br />
+	<label style="width: 300px; display: block;">AYT Yerleştirme Sayısal </label> 
+	<input style="width: 100%;" type="text" id="aytYerlestirmePuanSayisal" name="aytYerlestirmePuanSayisal" disabled="disabled" />
+</div>
+<div class="col45">
+	<label style="width: 300px; display: block;">AYT Ham Eşit Ağırlık</label> 
+	<input style="width: 100%;" type="text" id="aytHamPuanEsit" name="aytHamPuanEsit" disabled="disabled" /> 
+	<br />
+	<label style="width: 300px; display: block;">AYT Yerleştirme Eşit Ağırlık</label> 
+	<input style="width: 100%;" type="text" id="aytYerlestirmePuanEsit" name="aytYerlestirmePuanEsit" disabled="disabled" />
+</div>
+</div>
+<center>
+<h1>TYT</h1>
+</center>
+<form>
+	<fieldset>
+		<legend>Türkçe: 40 Soru</legend> 
+		<label for="tytTemelMatematikDogru">Doğru</label> 
+		<input type="text" id="tytTurkceDogru" onkeyup="hesaplaAslanAYT()" name="tytTurkceDogru" /> 
+		<label for="lname">Yanlış</label> 
+		<input type="text" id="tytTurkceYanlis" onkeyup="hesaplaAslanAYT()" name="tytTurkceYanlis" /> 
+		<label for="country">Net</label> 
+		<input type="text" id="tytTurkceNet" name="tytTurkceNet" disabled="disabled" />
+	</fieldset>
+	<fieldset>
+		<legend>Temel Matematik: 40 Soru</legend> 
+		<label for="tytTemelMatematikDogru">Doğru</label> 
+		<input type="text" id="tytTemelMatematikDogru" onkeyup="hesaplaAslanAYT()" name="tytTemelMatematikDogru" /> 
+		<label for="tytTemelMatematikYanlis">Yanlış</label> 
+		<input type="text" id="tytTemelMatematikYanlis" onkeyup="hesaplaAslanAYT()" name="tytTemelMatematikYanlis" /> 
+		<label for="tytTemelMatematikNet">Net</label> 
+		<input type="text" id="tytTemelMatematikNet" name="tytTemelMatematikNet" disabled="disabled" />
+	</fieldset>
+	<fieldset>
+		<legend>Sosyal Bilimler: 20 Soru</legend> 
+		<label for="tytSosyalBilimlerDogru">Doğru</label> 
+		<input type="text" id="tytSosyalBilimlerDogru" onkeyup="hesaplaAslanAYT()" name="tytSosyalBilimlerDogru" /> 
+		<label for="tytSosyalBilimlerYanlis">Yanlış</label> 
+		<input type="text" id="tytSosyalBilimlerYanlis" onkeyup="hesaplaAslanAYT()" name="tytSosyalBilimlerYanlis" /> 
+		<label for="tytSosyalBilimlerNet">Net</label> 
+		<input type="text" id="tytSosyalBilimlerNet" name="tytSosyalBilimlerNet" disabled="disabled" />
+	</fieldset>
+	<fieldset>
+		<legend>Fen Bilimleri: 20 Soru</legend> 
+		<label for="tytFenBilimleriDogru">Doğru</label> 
+		<input type="text" id="tytFenBilimleriDogru" onkeyup="hesaplaAslanAYT()" name="tytFenBilimleriDogru" /> 
+		<label for="tytFenBilimleriYanlis">Yanlış</label> 
+		<input type="text" id="tytFenBilimleriYanlis" onkeyup="hesaplaAslanAYT()" name="tytFenBilimleriYanlis" /> 
+		<label for="tytFenBilimleriNet">Net</label> 
+		<input type="text" id="tytFenBilimleriNet" name="tytFenBilimleriNet" disabled="disabled" /></fieldset>
+	</form>
+</div>
+<center>
+<h1>AYT</h1>
+</center><center>
+<h2>Sosyal Bilimler-1</h2>
+</center><form><fieldset><legend>Türk Dili ve Edebiyatı: 24 Soru</legend> <label for="tdeDogru">Doğru</label> <input type="text" id="tdeDogru" onkeyup="hesaplaAslanAYT()" name="tdeDogru" /> <label for="tdeYanlis">Yanlış</label> <input type="text" id="tdeYanlis" onkeyup="hesaplaAslanAYT()" name="tdeYanlis" /> <label for="country">Net</label> <input type="text" id="tdeNet" name="tdeNet" disabled="disabled" /></fieldset><fieldset><legend>Tarih-1: 10 Soru</legend> <label for="taDogru">Doğru</label> <input type="text" id="taDogru" onkeyup="hesaplaAslanAYT()" name="taDogru" /> <label for="taYanlis">Yanlış</label> <input type="text" id="taYanlis" onkeyup="hesaplaAslanAYT()" name="taYanlis" /> <label for="taNet">Net</label> <input type="text" id="taNet" name="taNet" disabled="disabled" /></fieldset><fieldset><legend>Coğrafya-1: 6 Soru</legend> <label for="cogDogru">Doğru</label> <input type="text" id="cogDogru" onkeyup="hesaplaAslanAYT()" name="cogDogru" /> <label for="cogYanlis">Yanlış</label> <input type="text" id="cogYanlis" onkeyup="hesaplaAslanAYT()" name="cogYanlis" /> <label for="cogNet">Net</label> <input type="text" id="cogNet" name="cogNet" disabled="disabled" /></fieldset></form><center>
+<h2>Sosyal Bilimler-2</h2>
+</center><form><fieldset><legend>Tarih-2: 11 Soru</legend> <label for="taikiDogru">Doğru</label> <input type="text" id="taikiDogru" onkeyup="hesaplaAslanAYT()" name="taikiDogru" /> <label for="taikiYanlis">Yanlış</label> <input type="text" id="taikiYanlis" onkeyup="hesaplaAslanAYT()" name="taikiYanlis" /> <label for="taikiNet">Net</label> <input type="text" id="taikiNet" name="taikiNet" disabled="disabled" /></fieldset><fieldset><legend>Coğrafya-2: 11 Soru</legend> <label for="cogikiDogru">Doğru</label> <input type="text" id="cogikiDogru" onkeyup="hesaplaAslanAYT()" name="cogikiDogru" /> <label for="cogikiYanlis">Yanlış</label> <input type="text" id="cogikiYanlis" onkeyup="hesaplaAslanAYT()" name="cogikiYanlis" /> <label for="cogikiNet">Net</label> <input type="text" id="cogikiNet" name="cogikiNet" disabled="disabled" /></fieldset><fieldset><legend>Felsefe Grubu: 12 Soru</legend> <label for="felDogru">Doğru</label> <input type="text" id="felDogru" onkeyup="hesaplaAslanAYT()" name="felDogru" /> <label for="felYanlis">Yanlış</label> <input type="text" id="felYanlis" onkeyup="hesaplaAslanAYT()" name="felYanlis" /> <label for="felNet">Net</label> <input type="text" id="felNet" name="felNet" disabled="disabled" /></fieldset><fieldset><legend>Din Kültürü: 6 Soru</legend> <label for="dinDogru">Doğru</label> <input type="text" id="dinDogru" onkeyup="hesaplaAslanAYT()" name="dinDogru" /> <label for="dinYanlis">Yanlış</label> <input type="text" id="dinYanlis" onkeyup="hesaplaAslanAYT()" name="dinYanlis" /> <label for="dinNet">Net</label> <input type="text" id="dinNet" name="dinNet" disabled="disabled" /></fieldset></form><center>
+<h2>Matematik</h2>
+</center><form><fieldset><legend>Matematik: 40 Soru</legend> <label for="maDogru">Doğru</label> <input type="text" id="maDogru" onkeyup="hesaplaAslanAYT()" name="maDogru" /> <label for="maYanlis">Yanlış</label> <input type="text" id="maYanlis" onkeyup="hesaplaAslanAYT()" name="maYanlis" /> <label for="maNet">Net</label> <input type="text" id="maNet" name="maNet" disabled="disabled" /></fieldset></form><center>
+<h2>Fen Bilimleri</h2>
+</center><form><fieldset><legend>Fizik: 14 Soru</legend> <label for="faDogru">Doğru</label> <input type="text" id="faDogru" onkeyup="hesaplaAslanAYT()" name="faDogru" /> <label for="faYanlis">Yanlış</label> <input type="text" id="faYanlis" onkeyup="hesaplaAslanAYT()" name="faYanlis" /> <label for="faNet">Net</label> <input type="text" id="faNet" name="faNet" disabled="disabled" /></fieldset><fieldset><legend>Kimya: 13 Soru</legend> <label for="kaDogru">Doğru</label> <input type="text" id="kaDogru" onkeyup="hesaplaAslanAYT()" name="kaDogru" /> <label for="kaYanlis">Yanlış</label> <input type="text" id="kaYanlis" onkeyup="hesaplaAslanAYT()" name="kaYanlis" /> <label for="kaNet">Net</label> <input type="text" id="kaNet" name="kaNet" disabled="disabled" /></fieldset><fieldset><legend>Biyoloji: 13 Soru</legend> <label for="baDogru">Doğru</label> <input type="text" id="baDogru" onkeyup="hesaplaAslanAYT()" name="baDogru" /> <label for="baYanlis">Yanlış</label> <input type="text" id="baYanlis" onkeyup="hesaplaAslanAYT()" name="baYanlis" /> <label for="baNet">Net</label> <input type="text" id="baNet" name="baNet" disabled="disabled" /></fieldset></form>
+<p>
+<script>
+		function hesaplaAslanAYT() {
+			var aytdiplomaCheck = document.getElementById("aytdiplomaAktif");
+
+			if (aytdiplomaCheck.checked == true) {
+				var aytdiplomaPuani = (((document.getElementById("aytdiplomaPuani").value) * 0.6) / 2);
+			} else {
+				var aytdiplomaPuani = ((document.getElementById("aytdiplomaPuani").value) * 0.6);
+			}
+
+
+
+			var tytTurkceDogru = document.getElementById("tytTurkceDogru").value;
+			var tytTurkceYanlis = document.getElementById("tytTurkceYanlis").value;
+			var tytTurkceNet = tytTurkceDogru - (tytTurkceYanlis / 4);
+
+			var tytTemelMatematikDogru = document.getElementById("tytTemelMatematikDogru").value;
+			var tytTemelMatematikYanlis = document.getElementById("tytTemelMatematikYanlis").value;
+			var tytTemelMatematikNet = tytTemelMatematikDogru - (tytTemelMatematikYanlis / 4);
+
+			var tytSosyalBilimlerDogru = document.getElementById("tytSosyalBilimlerDogru").value;
+			var tytSosyalBilimlerYanlis = document.getElementById("tytSosyalBilimlerYanlis").value;
+			var tytSosyalBilimlerNet = tytSosyalBilimlerDogru - (tytSosyalBilimlerYanlis / 4);
+
+			var tytFenBilimleriDogru = document.getElementById("tytFenBilimleriDogru").value;
+			var tytFenBilimleriYanlis = document.getElementById("tytFenBilimleriYanlis").value;
+			var tytFenBilimleriNet = tytFenBilimleriDogru - (tytFenBilimleriYanlis / 4);
+
+			var tytHamPuan = (tytTurkceNet * 3.3) + (tytTemelMatematikNet * 3.3) + (tytSosyalBilimlerNet * 3.4) + (tytFenBilimleriNet * 3.4) + 100;
+			var tytYerlestirmePuan = tytHamPuan + parseFloat(aytdiplomaPuani);
+
+			document.getElementById("tytTurkceNet").value = tytTurkceDogru - (tytTurkceYanlis / 4);
+			document.getElementById("tytTemelMatematikNet").value = tytTemelMatematikDogru - (tytTemelMatematikYanlis / 4);
+			document.getElementById("tytSosyalBilimlerNet").value = tytSosyalBilimlerDogru - (tytSosyalBilimlerYanlis / 4);
+			document.getElementById("tytFenBilimleriNet").value = tytFenBilimleriDogru - (tytFenBilimleriYanlis / 4);
+
+			document.getElementById("tytHamPuan").value = tytHamPuan;
+			document.getElementById("tytYerlestirmePuan").value = tytYerlestirmePuan;
+
+
+
+
+			var tdeDogru = document.getElementById("tdeDogru").value;
+			var tdeYanlis = document.getElementById("tdeYanlis").value;
+			var tdeNet = tdeDogru - (tdeYanlis / 4);
+
+			var taDogru = document.getElementById("taDogru").value;
+			var taYanlis = document.getElementById("taYanlis").value;
+			var taNet = taDogru - (taYanlis / 4);
+
+			var cogDogru = document.getElementById("cogDogru").value;
+			var cogYanlis = document.getElementById("cogYanlis").value;
+			var cogNet = cogDogru - (cogYanlis / 4);
+
+			var taikiDogru = document.getElementById("taikiDogru").value;
+			var taikiYanlis = document.getElementById("taikiYanlis").value;
+			var taikiNet = taikiDogru - (taikiYanlis / 4);
+
+			var cogikiDogru = document.getElementById("cogikiDogru").value;
+			var cogikiYanlis = document.getElementById("cogikiYanlis").value;
+			var cogikiNet = cogikiDogru - (cogikiYanlis / 4);
+
+			var felDogru = document.getElementById("felDogru").value;
+			var felYanlis = document.getElementById("felYanlis").value;
+			var felNet = felDogru - (felYanlis / 4);
+
+			var dinDogru = document.getElementById("dinDogru").value;
+			var dinYanlis = document.getElementById("dinYanlis").value;
+			var dinNet = dinDogru - (dinYanlis / 4);
+
+			var maDogru = document.getElementById("maDogru").value;
+			var maYanlis = document.getElementById("maYanlis").value;
+			var maNet = maDogru - (maYanlis / 4);
+
+			var faDogru = document.getElementById("faDogru").value;
+			var faYanlis = document.getElementById("faYanlis").value;
+			var faNet = faDogru - (faYanlis / 4);
+
+			var kaDogru = document.getElementById("kaDogru").value;
+			var kaYanlis = document.getElementById("kaYanlis").value;
+			var kaNet = kaDogru - (kaYanlis / 4);
+
+			var baDogru = document.getElementById("baDogru").value;
+			var baYanlis = document.getElementById("baYanlis").value;
+			var baNet = baDogru - (baYanlis / 4);
+ 
+			var tytAYTHamPuan = (tytTurkceNet * 1.32) + (tytTemelMatematikNet * 1.32) + (tytSosyalBilimlerNet * 1.36) + (tytFenBilimleriNet * 1.36);
+
+			var aytHamPuanSozel = (tdeNet * 3) + (taNet * 2.8) + (cogNet * 3.33) + (taikiNet * 2.91) + (cogikiNet * 2.91) + (felNet * 3) + (dinNet * 3.33) + 100 + tytAYTHamPuan;
+			var aytHamPuanSayisal = (maNet * 3) + (faNet * 2.85) + (kaNet * 3.07) + (baNet * 3.07) + 100 + tytAYTHamPuan;
+			var aytHamPuanEsit = (maNet * 3) + (tdeNet * 3) + (taNet * 2.8) + (cogNet * 3.33) + 100 + tytAYTHamPuan;
+
+			var aytYerlestirmePuanSozel = aytHamPuanSozel + parseFloat(aytdiplomaPuani);
+			var aytYerlestirmePuanSayisal = aytHamPuanSayisal + parseFloat(aytdiplomaPuani);
+			var aytYerlestirmePuanEsit = aytHamPuanEsit + parseFloat(aytdiplomaPuani);
+
+			document.getElementById("tdeNet").value = tdeDogru - (tdeYanlis / 4);
+			document.getElementById("taNet").value = taDogru - (taYanlis / 4);
+			document.getElementById("cogNet").value = cogDogru - (cogYanlis / 4);
+			document.getElementById("taikiNet").value = taikiDogru - (taikiYanlis / 4);
+			document.getElementById("cogikiNet").value = cogikiDogru - (cogikiYanlis / 4);
+			document.getElementById("felNet").value = felDogru - (felYanlis / 4);
+			document.getElementById("dinNet").value = dinDogru - (dinYanlis / 4);
+			document.getElementById("maNet").value = maDogru - (maYanlis / 4);
+			document.getElementById("faNet").value = faDogru - (faYanlis / 4);
+			document.getElementById("kaNet").value = kaDogru - (kaYanlis / 4);
+			document.getElementById("baNet").value = baDogru - (baYanlis / 4);
+
+			document.getElementById("aytHamPuanSozel").value = aytHamPuanSozel;
+			document.getElementById("aytHamPuanSayisal").value = aytHamPuanSayisal;
+			document.getElementById("aytHamPuanEsit").value = aytHamPuanEsit;
+			document.getElementById("aytYerlestirmePuanSozel").value = aytYerlestirmePuanSozel;
+			document.getElementById("aytYerlestirmePuanSayisal").value = aytYerlestirmePuanSayisal;
+			document.getElementById("aytYerlestirmePuanEsit").value = aytYerlestirmePuanEsit;
+		}
+	</script>
+</p>
+<style>
+		body {
+			margin: 0px;
+			font-family: Ubuntu;
+color: #000;
+		}
+		@media screen and (max-width: 768px) {
+			input[type=text] {
+				width: 80%;
+				margin: 5px 15px 5px 10px;
+				display: block;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				box-sizing: border-box;
+				font-size: 16px;
+				font-weight: bold;
+				color: #000;
+			}
+
+			.content {
+				border-radius: 0px;
+				width: 100%;
+				margin: 0px auto;
+			}
+
+			.headcontent {
+				height: auto;
+				padding: 15px;
+				color: #000;
+			}
+
+			.headcontent input {
+				width: 80% !important;
+				padding: 5px;
+			}
+
+			.col45 {
+				width: 100%;
+				padding: 5px;
+color: #000;
+			}
+
+			fieldset {
+				width: 80%;
+				margin: 0 auto;
+				margin-top: 15px;
+				border-color: #000;
+				border-radius: 30px;
+color: #000;
+			}
+		}
+
+
+	</style>
+</body>
+
+</html>
